@@ -6,6 +6,9 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductService {
+    remove(arg0: number): ProductDto | PromiseLike<ProductDto> {
+        throw new Error('Method not implemented.');
+    }
 
     constructor(
         @InjectRepository(ProductEntity)
