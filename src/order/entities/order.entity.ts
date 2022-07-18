@@ -1,4 +1,4 @@
-import { BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Order {
@@ -15,15 +15,19 @@ export class Order {
     @Column({nullable:false})
     location: string;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
+    // @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
+    @Column()
+    @CreateDateColumn()
     created: Date;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
+    // @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
+    @Column()
+    @UpdateDateColumn()
     updated: Date;
 
-    @BeforeUpdate()
-    updateTimestamp() {
-        this.updated = new Date;
-    }
+    // @BeforeUpdate()
+    // updateTimestamp() {
+    //     this.updated = new Date;
+    // }
 
 }

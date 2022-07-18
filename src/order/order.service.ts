@@ -23,15 +23,15 @@ export class OrderService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} order`;
+    return this.orderRepository.findOneBy( {id});
   }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {
-    return `This action updates a #${id} order`;
+    return this.orderRepository.update(id, updateOrderDto) ;
   }
 
   remove(id: number) {
-    return `This action removes a #${id} order`;
+     return this.orderRepository.delete(id);
   }
   
 }
